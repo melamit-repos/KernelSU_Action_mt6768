@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build Kernel by ${{ github.actor }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
     - uses: actions/checkout@v3
@@ -39,7 +39,7 @@ jobs:
     - name: Download Clang Toolchain
       run: |
         mkdir clang
-        git clone https://github.com/vijaymalav564/vortex-clang.git -b master --depth=1 clang
+        git clone https://github.com/rama982/clang -b master --depth=1 clang
     - name: Download mkbootimg tools
       if: env.MAKE_BOOT_IMAGE == 'true'
       run: |
